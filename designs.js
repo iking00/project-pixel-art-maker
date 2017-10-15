@@ -1,9 +1,9 @@
 /**
-*@description Creates string for table Html
-@constructor
-@param {number} gridHeight
-@param {number} gridWidth
-@returns {string} Table Html with gridHeight x gridWidth
+* @description Creates string for table Html
+* @constructor
+* @param {number} gridHeight
+* @param {number} gridWidth
+* @returns {string} Table Html with gridHeight x gridWidth
 */
 function getGridHtml(gridHeight, gridWidth) {
 	let grid = '';
@@ -31,9 +31,9 @@ function makeGrid() {
 }
 
 /**
-@description color clicked td according to color picker
-@constructor
-@param {object} evt
+* @description color clicked td according to color picker
+* @constructor
+* @param {object} evt
 */
 function colorTd(evt) {
 	var target = $(evt.target);
