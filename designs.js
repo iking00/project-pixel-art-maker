@@ -30,10 +30,26 @@ function makeGrid() {
 	$('#pixel_canvas').append(gridHtml);
 }
 
+/**
+@description color clicked td according to color picker
+@constructor
+@param {object} evt
+*/
+function colorTd(evt) {
+	var target = $(evt.target);
+	if (target.is('td')) {
+		var colorPicker = $('#colorPicker').val();
+		target.css('background-color',colorPicker);
+	}
+}
+
 /** attach click events to submit and table on document ready */
 $(function(){
 	$('#btnCanvas').click(function(evt){
 		evt.preventDefault();
 		makeGrid();
+	});
+	$('#pixel_canvas').click(function(evt){
+		colorTd(evt);
 	});
 });
