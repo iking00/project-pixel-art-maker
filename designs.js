@@ -26,7 +26,7 @@ function makeGrid() {
 	$('#pixel_canvas').empty();
 	const gridHeight = $('#input_height').val();
 	const gridWidth = $('#input_width').val();
-	const gridHtml = getGridHtml(gridHeight,gridWidth);
+	const gridHtml = getGridHtml(gridHeight, gridWidth);
 	$('#pixel_canvas').append(gridHtml);
 }
 
@@ -39,17 +39,17 @@ function colorTd(evt) {
 	var target = $(evt.target);
 	if (target.is('td')) {
 		var colorPicker = $('#colorPicker').val();
-		target.css('background-color',colorPicker);
+		target.css('background-color', colorPicker);
 	}
 }
 
 /** attach click events to submit and table on document ready */
-$(function(){
-	$('input[type="submit"]').click(function(evt){
+$(function() {
+	$('input[type="submit"]').click(function(evt) {
 		evt.preventDefault();
 		makeGrid();
 	});
-	$('#pixel_canvas').click(function(evt){
+	$('#pixel_canvas').click(function(evt) {
 		colorTd(evt);
 	});
 });
