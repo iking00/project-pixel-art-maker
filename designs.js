@@ -1,10 +1,39 @@
-// Select color input
-// Select size input
-
-// When size is submitted by the user, call makeGrid()
-
-function makeGrid() {
-
-// Your code goes here!
-
+/**
+*@description Creates string for table Html
+@constructor
+@param {number} gridHeight
+@param {number} gridWidth
+@returns {string} Table Html with gridHeight x gridWidth
+*/
+function getGridHtml(gridHeight, gridWidth) {
+	let grid = '';
+	for (let i = 0; i < gridHeight; i++) {
+		let tr = '<tr>';
+		let td = '';
+		let j = 0;
+		while (j < gridWidth) {
+			td += '<td></td>';
+			j++;
+		}
+		tr += td + '</tr>';
+		grid += tr;
+	}
+	return grid;
 }
+
+/** empty table and build canvas from user selected height x width */
+function makeGrid() {
+	$('#pixel_canvas').empty();
+	const gridHeight = $('input[name="height"]').val();
+	const gridWidth = $('input[name="width"]').val();
+	const gridHtml = getGridHtml(gridHeight,gridWidth);
+	$('#pixel_canvas').append(gridHtml);
+}
+
+/** attach click events to submit and table on document ready */
+$(function(){
+	$('#btnCanvas').click(function(evt){
+		evt.preventDefault();
+		makeGrid();
+	});
+});
