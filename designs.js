@@ -24,8 +24,8 @@ function getGridHtml(gridHeight, gridWidth) {
 /** empty table and build canvas from user selected height x width */
 function makeGrid() {
 	$('#pixel_canvas').empty();
-	const gridHeight = $('input[name="height"]').val();
-	const gridWidth = $('input[name="width"]').val();
+	const gridHeight = $('#input_height').val();
+	const gridWidth = $('#input_width').val();
 	const gridHtml = getGridHtml(gridHeight,gridWidth);
 	$('#pixel_canvas').append(gridHtml);
 }
@@ -45,7 +45,7 @@ function colorTd(evt) {
 
 /** attach click events to submit and table on document ready */
 $(function(){
-	$('#btnCanvas').click(function(evt){
+	$('input[type="submit"]').click(function(evt){
 		evt.preventDefault();
 		makeGrid();
 	});
